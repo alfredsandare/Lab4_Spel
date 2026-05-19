@@ -9,13 +9,6 @@
 // In Simserver, connect 
 // GPIO E(0-15)/SPI Display -> 18 LC/TFT Display
 
-void init_rect(int x, int y, int width, int height) {
-    tft_lcd_rect(x, y, x+20, x+20, TFT_CYAN, 1);
-}
-
-
-
-
 int main(void) {
     // Initialize the display
     tft_init(TFT_INIT_ILI9488);
@@ -26,7 +19,6 @@ int main(void) {
 
     while (1 == 1) {
 
-        
         // Clear the screen with black color
         tft_lcd_rect(0, 0, LCD_W - 1, LCD_H - 1, 0x0000, 1);
 
