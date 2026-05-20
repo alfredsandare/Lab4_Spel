@@ -21,20 +21,20 @@ int main(void) {
     while (1 == 1) {
 
         // Clear the screen with black color
-        tft_lcd_rect(0, 0, LCD_W - 1, LCD_H - 1, 0x0000, 1);
         
         uint8_t key_pressed = keypad();
         switch (key_pressed) {
             case 0:
-                x_pos--;
-                break;
+            x_pos--;
+            break;
             case 2:
-                x_pos++;
-                break;
+            x_pos++;
+            break;
             default:
-                break;
+            break;
         }
+        tft_lcd_rect(0, 0, LCD_W - 1, LCD_H - 1, 0x0000, 1);
         tft_lcd_rect(x_pos-20, y_pos-20, 40, 40, TFT_CYAN, 1);
-        delay_ms(100);
+        delay_ms(1000);
     }
 }
