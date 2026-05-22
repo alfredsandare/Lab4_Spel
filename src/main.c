@@ -134,12 +134,12 @@ int main(void) {
             uint8_t key_pressed = keypad();
             switch (key_pressed) {
                 case 0:
-                    if(y_pos > 0 +SPACESHIP_SIZE/2){
+                    if(y_pos > SPACESHIP_SIZE/2+1){
                         y_pos-=3;
                     }
                     break;
                 case 2:
-                    if(y_pos < 480-SPACESHIP_SIZE/2){
+                    if(y_pos < LCD_H-SPACESHIP_SIZE/2){
                         y_pos+=3;
                     }
                     break;
@@ -147,6 +147,7 @@ int main(void) {
                     break;
             }
             // reset screen
+            tft_lcd_rect(0, 0, LCD_W - 1, LCD_H - 1, 0x0000, 1);
             tft_lcd_rect(1, 1, LCD_W - 1, LCD_H - 1, 0x0000, 1);
             tft_lcd_rect(1,1,5,((LCD_H-1)/5)*player_health,TFT_GREEN,1);
             // Bullets, position and movement 
@@ -197,7 +198,7 @@ int main(void) {
             if(player_health == 0){
                 running = 0;
             }
-            // delay_ms(100000000);
+            delay_ms(30);
         }
     }
 }
